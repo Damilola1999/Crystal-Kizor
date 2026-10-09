@@ -16,6 +16,19 @@
   z-index: 100;
   padding: 14px 24px;
   pointer-events: none; /* only the bar itself is clickable */
+  transition: transform 0.35s var(--nav-ease), opacity 0.35s var(--nav-ease);
+}
+
+.nav-wrap.nav-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-wrap.nav-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ---------- Bar ---------- */

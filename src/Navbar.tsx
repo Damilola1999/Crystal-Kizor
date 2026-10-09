@@ -49,6 +49,8 @@ export default function Navbar() {
   const [hovered, setHovered] = useState<string | null>(null);
   const [mobileOpenSubmenu, setMobileOpenSubmenu] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [navVisible, setNavVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 1024);
@@ -56,6 +58,31 @@ export default function Navbar() {
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY <= 0) {
+        setNavVisible(true);
+        setLastScrollY(currentScrollY);
+        return;
+      }
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down - hide navbar
+        setNavVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up - show navbar
+        setNavVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, item: typeof links[0]) => {
     if (item.subLinks && isMobile) {
@@ -82,7 +109,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="nav-wrap">
+    <header className={`nav-wrap ${navVisible ? "nav-visible" : "nav-hidden"}`}>
       <nav className="nav">
         <a href="/" className="nav__brand">
           <Logo />
