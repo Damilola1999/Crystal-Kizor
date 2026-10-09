@@ -36,10 +36,29 @@ const links = [
 ];
 
 const Logo = () => (
-  <svg width="28" height="34" viewBox="0 0 28 34" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round">
-    <path d="M9 4C3 8 3 26 9 30" />
-    <path d="M13 3v28" />
-    <path d="M25 4L13 18l12 13" />
+  <svg width="32" height="38" viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M20 3 C30 7, 34 14, 34 22 C34 32, 26 40, 20 45 C14 40, 6 32, 6 22 C6 14, 10 7, 20 3 Z"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      fill="none"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M20 6 C28.5 9.5, 31.5 15, 31.5 22 C31.5 30, 25 36.5, 20 40.5 C15 36.5, 8.5 30, 8.5 22 C8.5 15, 11.5 9.5, 20 6 Z"
+      stroke="currentColor"
+      strokeWidth="0.7"
+      fill="none"
+      opacity="0.55"
+      strokeLinejoin="round"
+    />
+    <line x1="11" y1="21" x2="29" y2="21" stroke="currentColor" strokeWidth="0.7" opacity="0.5" />
+    <g fill="currentColor">
+      <path d="M27 12.5 C27 9.5 25 7.8 22 7.8 C19.5 7.8 18 9.2 18 11 L20.5 11.2 C20.7 10.4 21.4 10 22 10 C22.8 10 23.3 10.6 23.3 11.2 C23.3 12.1 22.4 12.4 21 12.6 L21 14.4 C22.6 14.6 23.6 15.2 23.6 16.4 C23.6 17.6 22.8 18.2 22 18.2 C21.2 18.2 20.6 17.8 20.5 17 L18 17.2 C18.3 19.4 19.8 20.6 22 20.6 C24.3 20.6 25.8 19.2 25.8 17 C25.8 15 24.5 13.6 22.5 13 L25.5 13 Z" />
+      <path d="M14.5 24 L14.5 37 L12.5 37 L12.5 24 L7.5 37 L5.5 37 L11.5 25 L6 24 L8 24 L12.5 28 L12.5 24 Z" />
+      <path d="M14.5 24 L21.5 31 L24 33.5 L25.5 31.5 L19.5 27 L14.5 24 Z" />
+    </g>
+    <circle cx="20" cy="43" r="1.6" fill="currentColor" opacity="0.6" />
   </svg>
 );
 
