@@ -121,15 +121,16 @@ export function Middle() {
 
         <div className="eco__grid">
           {brands.map((b, i) => (
-            <a href="#" className="card" key={b.id} style={{ "--i": i } as CSSProperties}>
+            <a href={b.url || "#"} className="card" key={b.id} style={{ "--i": i } as CSSProperties} target="_blank" rel="noopener noreferrer">
               <div className="card__media">
                 <img src={b.image} alt="" loading="lazy" />
               </div>
               <div className="card__body">
                 <div className="card__logo">{b.logo}</div>
                 <p className="card__text">{b.description}</p>
-                <span className="card__arrow">
-                  <Arrow />
+                <p className="card__proof">{b.proof}</p>
+                <span className="card__cta">
+                  {b.cta} <Arrow />
                 </span>
               </div>
             </a>
@@ -146,17 +147,28 @@ export function Middle() {
 export function About() {
   const { ref, inView } = useInView<HTMLElement>(0.2);
 
+  const credentials = [
+    { title: "RIBA Chartered Architect", year: "2014" },
+    { title: "M.Arch, Architectural Association", year: "2012" },
+    { title: "TEDx Speaker", year: "2022" },
+    { title: "Design Indaba Emerging Creative", year: "2019" },
+    { title: "UN-Habitat Youth Advisory Board", year: "2021–2023" },
+    { title: "Royal Academy Summer Exhibition", year: "2020" },
+  ];
+
   return (
     <section ref={ref} className={`about ${inView ? "is-in" : ""}`}>
       <div className="about__media">
-        <iframe
-          src="https://assets.pinterest.com/ext/embed.html?id=882635226975256461"
-          height="100%"
-          width="100%"
-          frameBorder="0"
-          scrolling="no"
-          title="Crystal Kizor video"
-        />
+        <div className="about__portrait">
+          <img src="/images/about-portrait.jpg" alt="Crystal Kizor" loading="lazy" />
+        </div>
+        <div className="about__video-wrapper">
+          <img
+            src="https://i.pinimg.com/736x/91/55/a9/9155a934c0e378e8e9bfcc16f4593089.jpg"
+            alt="Crystal Kizor video"
+            loading="lazy"
+          />
+        </div>
       </div>
 
       <div className="about__copy">
@@ -170,11 +182,32 @@ export function About() {
           <br />
           <Words text="sustainable future." delay={1.0} step={0.12} />
         </h2>
-        <p className="about__text fade" style={{ animationDelay: "1.3s" }}>
-          I'm passionate about using design, education, research and influence to solve real problems, create opportunities and
-          help people and communities thrive — especially in Africa.
-        </p>
-        <a href="#about" className="about__link fade" style={{ animationDelay: "1.5s" }}>
+
+        <div className="about__story">
+          <p className="fade" style={{ animationDelay: "1.2s" }}>
+            I'm Crystal Kizor — an architect, designer, and systems thinker working at the intersection of space, people, and purpose.
+            Born in Lagos and trained in London, I've spent the last 15 years designing across continents, from cultural institutions
+            in Europe to community-driven infrastructure across Africa.
+          </p>
+          <p className="fade" style={{ animationDelay: "1.4s" }}>
+            My practice is built on the belief that design can be a vehicle for equity — creating spaces that heal, systems that empower,
+            and platforms that amplify voices often left out of the room.
+          </p>
+        </div>
+
+        <div className="about__credentials">
+          <h3 className="fade" style={{ animationDelay: "1.5s" }}>Credentials & Recognition</h3>
+          <ul className="about__cred-list">
+            {credentials.map((cred, i) => (
+              <li key={cred.title} className="fade" style={{ animationDelay: `${1.6 + i * 0.08}s` }}>
+                <span className="cred__title">{cred.title}</span>
+                <span className="cred__year">{cred.year}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <a href="#about" className="about__link fade" style={{ animationDelay: "2.2s" }}>
           Learn More About Me <Arrow />
         </a>
       </div>
@@ -258,9 +291,30 @@ export function Closing() {
             <p className="c-fade" style={{ animationDelay: "0.25s" }}>
               Follow the journey, get updates and be part of what’s next.
             </p>
+
+            <form className="ft__signup" onSubmit={(e) => e.preventDefault()} aria-label="Newsletter signup">
+              <label className="ft__signup-label" htmlFor="ft-email">
+                Email address
+              </label>
+              <div className="ft__signup-row">
+                <input
+                  id="ft-email"
+                  type="email"
+                  className="ft__signup-input"
+                  placeholder="you@example.com"
+                  required
+                  aria-required
+                />
+                <button type="submit" className="ft__signup-btn">
+                  Subscribe <Arrow />
+                </button>
+              </div>
+              <p className="ft__signup-note">No spam, unsubscribe at any time.</p>
+            </form>
+
             <ul className="ft__socials">
               {socials.map((s, i) => (
-                <li key={s.label} className="c-fade" style={{ animationDelay: `${0.4 + i * 0.1}s` }}>
+                <li key={s.label} className="c-fade" style={{ animationDelay: `${0.5 + i * 0.1}s` }}>
                   <a href={s.href} aria-label={s.label}>
                     {s.icon}
                   </a>
@@ -269,11 +323,144 @@ export function Closing() {
             </ul>
           </div>
 
-          <a href="#contact" className="ft__btn c-fade" style={{ animationDelay: "0.5s" }}>
-            Get in Touch <Arrow />
-          </a>
+          <div className="ft__contact">
+            <h3 className="c-fade" style={{ animationDelay: "0.35s" }}>Get in touch</h3>
+            <address className="ft__contact-list">
+              <a href="mailto:hello@crystalkizor.com" className="ft__contact-item c-fade" style={{ animationDelay: "0.5s" }}>
+                <span className="ft__contact-ic" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round">
+                    <rect x="3" y="5" width="18" height="14" rx="1.5" />
+                    <path d="M3.5 6.5l8.5 7 8.5-7" />
+                  </svg>
+                </span>
+                <span>hello@crystalkizor.com</span>
+              </a>
+              <span className="ft__contact-item c-fade" style={{ animationDelay: "0.62s" }}>
+                <span className="ft__contact-ic" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </span>
+                <span>Lagos, Nigeria</span>
+              </span>
+            </address>
+          </div>
         </div>
       </footer>
     </>
+  );
+}
+
+
+/* ---------- Social Proof Component ---------- */
+export function SocialProof() {
+  const { ref, inView } = useInView<HTMLElement>(0.15);
+
+  const stats = [
+    { value: "15+", label: "Years of Practice" },
+    { value: "200+", label: "Projects Completed" },
+    { value: "50k+", label: "People Reached" },
+    { value: "12", label: "Countries Worked In" },
+  ];
+
+  const pressLogos = [
+    { name: "Architectural Digest", src: "https://via.placeholder.com/160x40/1a1a1a/fff?text=Architectural+Digest", alt: "Architectural Digest" },
+    { name: "Dezeen", src: "https://via.placeholder.com/160x40/1a1a1a/fff?text=Dezeen", alt: "Dezeen" },
+    { name: "Design Indaba", src: "https://via.placeholder.com/160x40/1a1a1a/fff?text=Design+Indaba", alt: "Design Indaba" },
+    { name: "Wallpaper*", src: "https://via.placeholder.com/160x40/1a1a1a/fff?text=Wallpaper*", alt: "Wallpaper*" },
+    { name: "CNN", src: "https://via.placeholder.com/160x40/1a1a1a/fff?text=CNN", alt: "CNN" },
+    { name: "BBC", src: "https://via.placeholder.com/160x40/1a1a1a/fff?text=BBC", alt: "BBC" },
+  ];
+
+  const clientLogos = [
+    { name: "UN-Habitat", src: "https://via.placeholder.com/140x50/1a1a1a/fff?text=UN-Habitat", alt: "UN-Habitat" },
+    { name: "African Development Bank", src: "https://via.placeholder.com/140x50/1a1a1a/fff?text=AfDB", alt: "African Development Bank" },
+    { name: "Google", src: "https://via.placeholder.com/140x50/1a1a1a/fff?text=Google", alt: "Google" },
+    { name: "World Bank", src: "https://via.placeholder.com/140x50/1a1a1a/fff?text=World+Bank", alt: "World Bank" },
+    { name: "Nike", src: "https://via.placeholder.com/140x50/1a1a1a/fff?text=Nike", alt: "Nike" },
+    { name: "IKEA", src: "https://via.placeholder.com/140x50/1a1a1a/fff?text=IKEA", alt: "IKEA" },
+  ];
+
+  const testimonials = [
+    {
+      quote: "Crystal's work transcends architecture — she designs systems that heal communities.",
+      author: "Dr. Aisha Mohammed",
+      role: "Director, UN-Habitat Africa",
+    },
+    {
+      quote: "A rare talent who combines deep technical rigor with profound human empathy.",
+      author: "Prof. Kwame Adjei",
+      role: "Dean, School of Architecture, KNUST",
+    },
+    {
+      quote: "Her approach to participatory design has transformed how we think about public space in Africa.",
+      author: "Lindiwe Matshikiza",
+      role: "Cultural Programmes Lead, British Council",
+    },
+  ];
+
+  return (
+    <section ref={ref} className={`social-proof ${inView ? "is-in" : ""}`}>
+      <div className="sp__container">
+        {/* Stats Strip */}
+        <div className="sp__stats">
+          {stats.map((stat, i) => (
+            <div className="sp__stat" key={stat.label} style={{ "--i": i } as React.CSSProperties}>
+              <div className="sp__stat-value">{stat.value}</div>
+              <div className="sp__stat-label">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Press / Featured In */}
+        <div className="sp__section">
+          <p className="sp__eyebrow">AS FEATURED IN</p>
+          <div className="sp__logos sp__logos--press">
+            {pressLogos.map((logo) => (
+              <img
+                key={logo.name}
+                src={logo.src}
+                alt={logo.alt}
+                className="sp__logo"
+                loading="lazy"
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Testimonials */}
+        <div className="sp__section">
+          <p className="sp__eyebrow">TESTIMONIALS</p>
+          <div className="sp__testimonials">
+            {testimonials.map((t, i) => (
+              <blockquote className="sp__testimonial" key={i} style={{ "--i": i } as React.CSSProperties}>
+                <p className="sp__quote">"{t.quote}"</p>
+                <footer className="sp__author">
+                  <cite className="sp__name">{t.author}</cite>
+                  <span className="sp__role">{t.role}</span>
+                </footer>
+              </blockquote>
+            ))}
+          </div>
+        </div>
+
+        {/* Client / Event Logos */}
+        <div className="sp__section">
+          <p className="sp__eyebrow">CLIENTS & PARTNERS</p>
+          <div className="sp__logos sp__logos--clients">
+            {clientLogos.map((logo) => (
+              <img
+                key={logo.name}
+                src={logo.src}
+                alt={logo.alt}
+                className="sp__logo"
+                loading="lazy"
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

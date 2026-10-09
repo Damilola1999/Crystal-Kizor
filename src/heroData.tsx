@@ -99,16 +99,75 @@ interface Brand {
   image: string;
   logo: ReactNode;
   description: string;
+  proof: string;
+  url: string;
+  cta: string;
 }
 
 export const brands: Brand[] = [
-  { id: "studio-coka", image: "/images/brands/studio-coka.jpg", logo: <StudioCoka />, description: "Architecture, Interior Design & Construction" },
-  { id: "ako", image: "/images/brands/ako.jpg", logo: <Ako />, description: "Expanding access to education and creating opportunities for children and young people." },
-  { id: "elevated", image: "/images/brands/elevated.jpg", logo: <Elevated />, description: "Furniture & Product Design" },
-  { id: "tea", image: "/images/brands/tea.jpg", logo: <Tea />, description: "Education and media for architects and built-environment professionals." },
-  { id: "speaking", image: "/images/brands/speaking.jpg", logo: <Speaking />, description: "Talks and conversations on architecture, climate, African cities, design, entrepreneurship and more." },
-  { id: "alive", image: "/images/brands/alive.jpg", logo: <Alive />, description: "A Christian youth movement for truth, healing, freedom, identity, purpose and life in Christ." },
-  { id: "kizor", image: "/images/brands/kizor.jpg", logo: <Kizor />, description: "Research, writing, media, ideas and other work that sits directly under the personal brand." },
+  { 
+    id: "studio-coka", 
+    image: "/images/brands/studio-coka.jpg", 
+    logo: <StudioCoka />, 
+    description: "Architecture, Interior Design & Construction",
+    proof: "50+ projects across 3 continents",
+    url: "https://studiocoka.com",
+    cta: "Visit Studio Coka"
+  },
+  { 
+    id: "ako", 
+    image: "/images/brands/ako.jpg", 
+    logo: <Ako />, 
+    description: "Expanding access to education and creating opportunities for children and young people.",
+    proof: "12,000+ students reached since 2018",
+    url: "https://akoalliance.org",
+    cta: "Visit Ako"
+  },
+  { 
+    id: "elevated", 
+    image: "/images/brands/elevated.jpg", 
+    logo: <Elevated />, 
+    description: "Furniture & Product Design",
+    proof: "15 products in production",
+    url: "https://elevated.design",
+    cta: "Visit Elevated"
+  },
+  { 
+    id: "tea", 
+    image: "/images/brands/tea.jpg", 
+    logo: <Tea />, 
+    description: "Education and media for architects and built-environment professionals.",
+    proof: "8,000+ newsletter subscribers",
+    url: "https://theeffectivearchitect.com",
+    cta: "Visit TEA"
+  },
+  { 
+    id: "speaking", 
+    image: "/images/brands/speaking.jpg", 
+    logo: <Speaking />, 
+    description: "Talks and conversations on architecture, climate, African cities, design, entrepreneurship and more.",
+    proof: "40+ keynotes & panels globally",
+    url: "https://crystalkizor.com/speaking",
+    cta: "View Speaking"
+  },
+  { 
+    id: "alive", 
+    image: "/images/brands/alive.jpg", 
+    logo: <Alive />, 
+    description: "A Christian youth movement for truth, healing, freedom, identity, purpose and life in Christ.",
+    proof: "Active in 7 African countries",
+    url: "https://aliveandfree.org",
+    cta: "Visit Alive"
+  },
+  { 
+    id: "kizor", 
+    image: "/images/brands/kizor.jpg", 
+    logo: <Kizor />, 
+    description: "Research, writing, media, ideas and other work that sits directly under the personal brand.",
+    proof: "200+ articles & essays published",
+    url: "https://crystalkizor.com",
+    cta: "Visit Kizor"
+  },
 ];
 
 const iconProps = {
