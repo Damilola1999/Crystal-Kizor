@@ -107,7 +107,7 @@ interface Brand {
 export const brands: Brand[] = [
   { 
     id: "studio-coka", 
-    image: "/images/brands/studio-coka.jpg", 
+    image: "/images/Architectural Designer in Her Studio.png", 
     logo: <StudioCoka />, 
     description: "Architecture, Interior Design & Construction",
     proof: "50+ projects across 3 continents",
@@ -120,7 +120,7 @@ export const brands: Brand[] = [
     logo: <Ako />, 
     description: "Expanding access to education and creating opportunities for children and young people.",
     proof: "12,000+ students reached since 2018",
-    url: "https://akoalliance.org",
+    url: "#",
     cta: "Visit Ako"
   },
   { 
@@ -129,7 +129,7 @@ export const brands: Brand[] = [
     logo: <Elevated />, 
     description: "Furniture & Product Design",
     proof: "15 products in production",
-    url: "https://elevated.design",
+    url: "#",
     cta: "Visit Elevated"
   },
   { 
@@ -143,7 +143,7 @@ export const brands: Brand[] = [
   },
   { 
     id: "speaking", 
-    image: "/images/brands/speaking.jpg", 
+    image: "/images/Cozy Architecture Podcast Workspace.png", 
     logo: <Speaking />, 
     description: "Talks and conversations on architecture, climate, African cities, design, entrepreneurship and more.",
     proof: "40+ keynotes & panels globally",
@@ -161,7 +161,7 @@ export const brands: Brand[] = [
   },
   { 
     id: "kizor", 
-    image: "/images/brands/kizor.jpg", 
+    image: "/images/Architectural Studio Portrait.png", 
     logo: <Kizor />, 
     description: "Research, writing, media, ideas and other work that sits directly under the personal brand.",
     proof: "200+ articles & essays published",

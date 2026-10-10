@@ -160,11 +160,11 @@ export function About() {
     <section ref={ref} className={`about ${inView ? "is-in" : ""}`}>
       <div className="about__media">
         <div className="about__portrait">
-          <img src="/images/about-portrait.jpg" alt="Crystal Kizor" loading="lazy" />
+          <img src="/images/confident-designer.png" alt="Crystal Kizor" loading="lazy" />
         </div>
         <div className="about__video-wrapper">
           <img
-            src="https://i.pinimg.com/736x/91/55/a9/9155a934c0e378e8e9bfcc16f4593089.jpg"
+            src="/images/img-2104.png"
             alt="Crystal Kizor video"
             loading="lazy"
           />

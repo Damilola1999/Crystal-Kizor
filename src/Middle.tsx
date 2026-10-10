@@ -1,8 +1,8 @@
 import { CSSProperties } from "react";
 import { useInView } from "./useInView";
 import { Arrow, AnimatedWords } from "./HeroComponents";
-import { roles } from "./heroData";
 import { brands } from "./heroData";
+import { rolesData } from "./heroData";
 import "./Home.css";
 
 /* ---------- Component ---------- */
@@ -20,7 +20,7 @@ export default function Middle() {
               THE ECOSYSTEM
             </p>
             <h2 className="eco__title">
-              <AnimatedWords text="Multiple brands. One vision." delay={0.15} step={0.13} />
+              <AnimatedWords text="Multiple brands. One vision." startDelay={0.15} step={0.13} />
             </h2>
           </div>
           <p className="eco__intro fade" style={{ animationDelay: "0.5s" }}>
@@ -50,7 +50,7 @@ export default function Middle() {
       {/* ===== About ===== */}
       <section ref={about.ref} className={`about ${about.inView ? "is-in" : ""}`}>
         <div className="about__media">
-          <img src="/images/about.jpg" alt="Crystal Kizor" loading="lazy" />
+          <img src="/images/Confident Designer in Studio Workspace.png" alt="Crystal Kizor" loading="lazy" />
         </div>
 
         <div className="about__copy">
@@ -58,11 +58,11 @@ export default function Middle() {
             ABOUT CRYSTAL KIZOR
           </p>
           <h2 className="about__title">
-            <AnimatedWords text="Designing systems" delay={0.25} step={0.12} />
+            <AnimatedWords text="Designing systems" startDelay={0.25} step={0.12} />
             <br />
-            <AnimatedWords text="for a more human," delay={0.6} step={0.12} />
+            <AnimatedWords text="for a more human," startDelay={0.6} step={0.12} />
             <br />
-            <AnimatedWords text="sustainable future." delay={1.0} step={0.12} />
+            <AnimatedWords text="sustainable future." startDelay={1.0} step={0.12} />
           </h2>
           <p className="about__text fade" style={{ animationDelay: "1.3s" }}>
             I'm passionate about using design, education, research and influence to solve real problems, create opportunities and
@@ -76,7 +76,7 @@ export default function Middle() {
         <div className="about__divider" />
 
         <ul className="about__roles">
-          {roles.map((r, i) => (
+          {rolesData.map((r, i) => (
             <li className="role" key={r.title} style={{ "--i": i } as CSSProperties}>
               <span className="role__icon">{r.icon}</span>
               <div>
