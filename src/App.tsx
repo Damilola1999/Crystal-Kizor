@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import Hero, { Middle, Closing, SocialProof } from "./Home";
+import Hero, { Middle, Timeline, Closing, SocialProof } from "./Home";
 import { Speaking as SpeakingSection } from "./Speaking";
 
 export default function App() {
@@ -9,6 +9,7 @@ export default function App() {
       <main style={{ minHeight: "100vh" }}>
         <Hero />
         <Middle />
+        <Timeline />
         <SocialProof />
         <SpeakingSection />
         <Closing />

@@ -231,6 +231,129 @@ export function About() {
 
 
 /* ---------- Component ---------- */
+export function Timeline() {
+  const { ref, inView } = useInView<HTMLElement>(0.2);
+
+  const milestones = [
+    {
+      year: "2018",
+      age: "23",
+      title: "Nigeria's First Off-Grid Hospital",
+      subtitle: "Designed and built",
+      highlights: [
+        "100% solar powered — completely independent of the national electricity grid",
+        "First eye hospital in Nsukka",
+        "₦8M saved yearly",
+        "₦48M saved so far",
+        "95% diesel reduction",
+        "400% increase in patient visits",
+        "Naturally cooled central waiting area",
+      ],
+    },
+    {
+      year: "2022",
+      age: "27",
+      title: "Nature Home — Parents' Dream 7-Bedroom Home",
+      subtitle: "Designed and built",
+      highlights: [
+        "Building orientation traps South-West and North-East winds for optimal natural ventilation",
+        "70% energy generation from solar",
+        "79% lower energy costs than former home (1.5x smaller)",
+        "87% use of natural lighting during daylight hours from expansive windows and atrium design",
+        "70% natural light only from 7am–7pm",
+        "Biodiversity: reappearance of butterflies after a decade absence in the neighborhood",
+      ],
+    },
+    {
+      year: "2024",
+      age: "28",
+      title: "Founded Studio COKA",
+      subtitle: "Architecture, Interior Design & Construction",
+      highlights: [
+        "Supporting home and business owners to design and build intentional, climate-responsive spaces",
+        "Increasing recorded satisfaction and customer experience in homes and businesses",
+      ],
+    },
+    {
+      year: "2024",
+      age: "28",
+      title: "100% Passively Cooled Home Prototype",
+      subtitle: "Hot-humid climate design",
+      highlights: [
+        "Prototype for a fully passively cooled home in hot-humid conditions",
+      ],
+    },
+    {
+      year: "2025",
+      age: "29",
+      title: "House of the Future Prototype — UAE",
+      subtitle: "Exploring local materials, culture, and timeless themes",
+      highlights: [
+        "Themes: indoor-outdoor living, space maximization, dignity for all live-in family members and staff",
+        "Natural cooling strategies for a resilient, enjoyable, and fulfilling home",
+        "Respecting culture while providing a safe haven",
+      ],
+    },
+    {
+      year: "2025",
+      age: "30",
+      title: "TEDx Talk",
+      subtitle: "Integrating Indigenous Architecture into modern living",
+      highlights: [
+        "Presented on the importance of indigenous architectural wisdom in contemporary design",
+      ],
+    },
+    {
+      year: "2026",
+      age: "30",
+      title: "The Effective Architect",
+      subtitle: "Global education platform founded",
+      highlights: [
+        "10,000+ community members",
+        "Sharing ideas on intentional design, thoughtful work, climate-responsive architecture",
+        "Career positioning for students, designers, and enthusiasts",
+      ],
+    },
+  ];
+
+  return (
+    <section ref={ref} className={`timeline ${inView ? "is-in" : ""}`}>
+      <div className="tl__head">
+        <p className="eyebrow fade" style={{ animationDelay: "0s" }}>
+          PAST STAGES
+        </p>
+        <h2 className="tl__title">
+          <Words text="A timeline of" delay={0.15} step={0.12} />
+          <br />
+          <Words text="purposeful work." delay={0.55} step={0.12} />
+        </h2>
+      </div>
+
+      <div className="tl__items">
+        {milestones.map((m, i) => (
+          <article key={m.year + i} className="tl__item" style={{ "--i": i } as CSSProperties}>
+            <div className="tl__marker">
+              <span className="tl__dot" />
+              <span className="tl__year">{m.year}</span>
+              <span className="tl__age">at {m.age}</span>
+            </div>
+            <div className="tl__content">
+              <h3 className="tl__title">{m.title}</h3>
+              <p className="tl__subtitle">{m.subtitle}</p>
+              <ul className="tl__highlights">
+                {m.highlights.map((h, j) => (
+                  <li key={j} className="tl__highlight">{h}</li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Component ---------- */
 export function Closing() {
   const top = useInView<HTMLElement>(0.25);
   const foot = useInView<HTMLElement>(0.3);

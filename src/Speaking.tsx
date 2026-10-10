@@ -42,17 +42,6 @@ export function Speaking() {
     "Faith, Culture & the Built Environment",
   ];
 
-  const pastStages = [
-    { event: "TEDx Lagos", year: "2022", location: "Lagos, Nigeria" },
-    { event: "Design Indaba Conference", year: "2021", location: "Cape Town, South Africa" },
-    { event: "World Architecture Festival", year: "2020", location: "Amsterdam, Netherlands" },
-    { event: "UN-Habitat World Urban Forum", year: "2023", location: "Katowice, Poland" },
-    { event: "Royal Academy of Arts", year: "2019", location: "London, UK" },
-    { event: "African Climate Summit", year: "2023", location: "Nairobi, Kenya" },
-    { event: "Google Design Sprint", year: "2021", location: "Virtual" },
-    { event: "Architectural Association", year: "2018", location: "London, UK" },
-  ];
-
   return (
     <section ref={ref} className={`speaking ${inView ? "is-in" : ""}`}>
       <div className="spk__container">
@@ -78,20 +67,6 @@ export function Speaking() {
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="spk__stages">
-          <h3 className="spk__section-title">Past Stages</h3>
-          <div className="spk__stage-grid">
-            {pastStages.map((stage, i) => (
-              <article key={stage.event} className="spk__stage" style={{ "--i": i } as CSSProperties}>
-                <div className="spk__stage-info">
-                  <h4 className="spk__stage-event">{stage.event}</h4>
-                  <p className="spk__stage-meta">{stage.year} · {stage.location}</p>
-                </div>
-              </article>
-            ))}
-          </div>
         </div>
 
         <div className="spk__cta-wrap">
